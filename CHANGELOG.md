@@ -1,3 +1,8 @@
+## [1.9.3] - 2026-06-07
+1.Replaced OpenAI with Google Gemini AI (free tier) in AiService.java
+2.Updated API request format to Gemini structure in AiService.java
+3.Updated application.properties with Gemini API key, URL and model
+
 ## [1.9.2] - 2026-06-06
 1.Remove API key from configuration and added environment variable.
 
