@@ -1,3 +1,6 @@
+## [1.9.4] - 2026-06-08
+1.Added PATCH method to CORS allowed methods in SecurityConfig.java
+
 ## [1.9.3] - 2026-06-07
 1.Replaced OpenAI with Google Gemini AI (free tier) in AiService.java
 2.Updated API request format to Gemini structure in AiService.java
