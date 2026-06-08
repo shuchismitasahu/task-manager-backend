@@ -1,18 +1,20 @@
-# Use Java 17
-FROM eclipse-temurin:17-jdk-alpine
+# Build Stage
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 
-# Set working directory
 WORKDIR /app
 
-# Copy maven files
 COPY pom.xml .
 COPY src ./src
-COPY mvnw .
-COPY .mvn ./.mvn
 
-# Build the jar
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
-# Run the jar
+# Runtime Stage
+FROM eclipse-temurin:17-jre
+
+WORKDIR /app
+
+COPY --from=build /app/target/*.jar app.jar
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "target/task-manager-backend-0.0.1-SNAPSHOT.jar"]
+
+ENTRYPOINT ["java","-jar","app.jar"]
