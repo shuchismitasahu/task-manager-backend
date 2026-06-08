@@ -1,26 +1,20 @@
-# --- Build stage ---
-FROM eclipse-temurin:21-jdk-alpine AS build
+# Build Stage
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+
 WORKDIR /app
+
 COPY pom.xml .
 COPY src ./src
 
-# Download dependencies first (layer-cached separately from source)
-RUN apk add --no-cache maven && mvn dependency:go-offline -q
-RUN mvn package -DskipTests -q
+RUN mvn clean package -DskipTests
 
-# --- Runtime stage ---
-FROM eclipse-temurin:21-jre-alpine
+# Runtime Stage
+FROM eclipse-temurin:17-jre
+
 WORKDIR /app
-
-# Create logs directory
-RUN mkdir -p logs
 
 COPY --from=build /app/target/*.jar app.jar
 
-# Run as non-root user
-RUN addgroup -S oktaguard && adduser -S oktaguard -G oktaguard
-USER oktaguard
-
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
