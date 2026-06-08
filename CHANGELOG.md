@@ -1,3 +1,6 @@
+## [1.9.7] - 2026-06-08
+1.changes the project structure
+
 ## [1.9.6] - 2026-06-08
 1. Change mysql connection 
 
