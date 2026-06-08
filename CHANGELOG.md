@@ -1,3 +1,6 @@
+## [1.9.6] - 2026-06-08
+1. Change mysql connection 
+
 ## [1.9.5] - 2026-06-08
 1.Replaced MySQL driver with PostgreSQL driver in pom.xml
 2.Added DevTools dependency in pom.xml
