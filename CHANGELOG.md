@@ -1,3 +1,6 @@
+## [1.9.9] - 2026-06-08
+1. added cross origin in deployment 
+
 ## [1.9.8] - 2026-06-08
 1.added Dockerfile
 
