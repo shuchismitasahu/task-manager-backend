@@ -1,3 +1,6 @@
+## [1.9.8] - 2026-06-08
+1.added Dockerfile
+
 ## [1.9.7] - 2026-06-08
 1.changes the project structure
 
