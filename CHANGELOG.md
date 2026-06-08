@@ -1,3 +1,8 @@
+## [1.9.5] - 2026-06-08
+1.Replaced MySQL driver with PostgreSQL driver in pom.xml
+2.Added DevTools dependency in pom.xml
+3.Updated application.properties — PostgreSQL datasource URL, driver and dialect
+
 ## [1.9.4] - 2026-06-08
 1.Added PATCH method to CORS allowed methods in SecurityConfig.java
 
